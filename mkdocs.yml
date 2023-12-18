@@ -1,0 +1,6 @@
+site_name: touchpi
+site_url: https://touchpi.bruu.eu/
+
+nav:
+  - Home: index.md
+  - About: about.md

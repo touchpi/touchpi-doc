@@ -1,0 +1,4 @@
+# packages for touchpi
+# Python version should be >= 3.6
+# pip install -r requirements.txt
+mkdocs>=1.5.3
