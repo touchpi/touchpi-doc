@@ -1,6 +1,15 @@
 site_name: touchpi
 site_url: https://touchpi.bruu.eu/
 
+plugins:
+    - search
+    - mermaid2
+
+theme:
+  name: mkdocs
+  favicon: images/favicon.png
+
 nav:
   - Home: index.md
   - About: about.md
+

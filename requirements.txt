@@ -1,4 +1,6 @@
-# packages for touchpi
+# packages for touchpi-doc
 # Python version should be >= 3.6
+# pip install mkdocs-mermaid2-plugin
 # pip install -r requirements.txt
 mkdocs>=1.5.3
+pymdown-extensions>=10.2.1
