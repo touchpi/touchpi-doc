@@ -111,9 +111,9 @@ Start the X11 server at the background with:
     * `sudo -b /usr/lib/xorg/Xorg :0`
 * Run a X11 app:
     * `xcalc -geometry 340x340-70+70`  
-    * The parameter is optimised for a 480x480 screen display. Left numbers are width and height of the X11 app. Right numbers are position from the right border and from the top.)
+    * The parameter is optimised for a 480x480 screen display. Left numbers are width and height of the X11 app. Right numbers are position from the right border and from the top.
 
-* When everything is installed properly you should see a calculator. Touching the numeric buttons should  display at the calculator display.
+* When everything is installed properly you should see a calculator. Test your touch display.<br>
 The app can be stopped with ^C. Stop the X Window Server with `sudo kill <pid>` and the appropriate pid.
 
 
@@ -146,4 +146,9 @@ Run touchpi in the project directory with:
 Autorun touchpi in the login shell with: 
 
 - `echo "ps -C start.sh >/dev/null && (ps -ef | grep -v grep | grep 'start.sh\|touchpi') || (./touchpi/start.sh &)" >>  ~/.profile`
+
+## Next Steps
+
+Next step is configuring touchpi with demo apps and developing your first app.<br>
+You will find more in the documentationn [touchpi.bruu.eu](https://touchpi.bruu.eu)
 
