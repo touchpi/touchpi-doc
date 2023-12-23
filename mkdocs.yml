@@ -1,15 +1,71 @@
 site_name: touchpi
+site_description: Develop simple X11 apps for raspberry pi with touchdisplay
 site_url: https://touchpi.bruu.eu/
 
-plugins:
-    - search
-    - mermaid2
-
 theme:
-  name: mkdocs
-  favicon: images/favicon.png
+  name: material
+  palette:
+  - scheme: default
+    primary: light blue
+    accent: amber
+    toggle:
+      icon: material/lightbulb
+      name: Switch to dark mode
+  - scheme: slate
+    primary: light blue
+    accent: amber
+    toggle:
+      icon: material/lightbulb-outline
+      name: Switch to light mode
+  features:
+  - search.suggest
+  - search.highlight
+  - content.tabs.link
+  - navigation.indexes
+  - content.tooltips
+  - navigation.path
+  - content.code.annotate
+  - content.code.copy
+  - content.code.select
+  icon:
+    repo: fontawesome/brands/git-alt
+  logo: img/logo.svg
+  favicon: img/favicon.png
+  language: en
+
+repo_name: touchpi/touchpi
+repo_url: https://github.com/touchpi/test
+edit_uri: ''
+
+plugins:
+  search: null
+  markdownextradata:
 
 nav:
   - Home: index.md
-  - About: about.md
 
+markdown_extensions:
+  markdown.extensions.attr_list:
+  markdown.extensions.tables:
+  markdown.extensions.md_in_html:
+  toc:
+    permalink: true
+  pymdownx.superfences:
+    custom_fences:
+    - name: mermaid
+      class: mermaid
+      format: !!python/name:pymdownx.superfences.fence_code_format ''
+  pymdownx.betterem:
+  pymdownx.blocks.details:
+  pymdownx.blocks.admonition:
+    types:
+    - note
+    - info
+    - tip
+    - warning
+    - danger
+  pymdownx.blocks.tab:
+    alternate_style: True
+  pymdownx.emoji:
+    emoji_index: !!python/name:material.extensions.emoji.twemoji
+    emoji_generator: !!python/name:material.extensions.emoji.to_svg

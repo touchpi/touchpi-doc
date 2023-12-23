@@ -3,4 +3,5 @@
 # pip install mkdocs-mermaid2-plugin
 # pip install -r requirements.txt
 mkdocs>=1.5.3
-pymdown-extensions>=10.2.1
+mkdocs-material==9.5.2
+mkdocs-markdownextradata-plugin>=0.2.5

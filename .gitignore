@@ -1,9 +1,9 @@
 .vs
-/venv/
-/.venv/
+venv/
+.venv/
 *.log
-/.idea/
-/.vscode/
+.idea/
+.vscode/
 __pycache__/
 *.py[cod]
-
+site/
