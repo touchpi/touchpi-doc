@@ -1,4 +1,4 @@
-# Redimitus genitoris undarum
+# Original Raspberry 7"
 
 ## Timor temptat temptent malorum nullum orbis murmura
 
