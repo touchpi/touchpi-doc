@@ -10,14 +10,3 @@
     font-size: 48px;
     color: #FF6E40;
 }
-
-.container {
-  display: flex;
-  align-items: start;
-  justify-content: center
-}
-
-.text {
-  font-size: 20px;
-  padding-left: 20px;
-}

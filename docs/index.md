@@ -1,23 +1,19 @@
 <img src="img/touchpi.svg">
 
+<br>
+<img src="img/logo.svg" width="100" height="100">
 touchpi enables the use and development of simple GUIs for Raspberry Pi devices with touch displays.
 Raspberry Pi devices are perfectly suited as control consoles for DIY projects. 
 They are small, require little power and can run 7x24.
 In combination with a touch display you may want to display and control your own project without the need of a Pi desktop. 
 However, the effort to develop a GUI interface is often a challenge.
-
-<div class="container">
-      <div>
-        <img src="img/logo.svg" width="500" height="500" alt="Animated gif with touchpi">
-      </div>
-      <div class="text">
-        touchpi is there to keep this effort as low as possible. 
-        Apps can be easily developed in a simple Python app framework and are launched in touchpi-OS. 
-        The apps are integrated into the configurable touchpi-desktop with lots of functionality. 
-        touchpi apps can be developed and tested under Linux and Windows and then transferred to run on a Pi.
-        The touchpi base uses well-known and stable Python packages.
-      </div>
-    </div>
+<br>
+<img src="img/logo.svg" width="100" height="100"> 
+touchpi is there to keep this effort as low as possible. 
+Apps can be easily developed in a simple Python app framework and are launched in touchpi-OS. 
+The apps are integrated into the configurable touchpi-desktop with lots of functionality. 
+touchpi apps can be developed and tested under Linux and Windows and then transferred to run on a Pi.
+The touchpi base uses well-known and stable Python packages.
 
 
 For full documentation visit [touchpi.bruu.eu](https://touchpi.bruu.eu)
