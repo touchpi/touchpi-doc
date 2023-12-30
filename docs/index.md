@@ -37,10 +37,10 @@ For full documentation visit [touchpi.bruu.eu](https://touchpi.bruu.eu)
 * support frontend apps and backend apps
     * frontend apps have a gui
     * backend apps can do heavy lifting in the background
-  * system apps
-    * *Screensaver* with backlight switching (when hardware supports it)
-    * *Pulse* creates customizable cyclic events
-    * *System* offers different types to end touchpi
+* system apps
+  * *Screensaver* with backlight switching (when hardware supports it)
+  * *Pulse* creates customizable cyclic events
+  * *System* offers different types to end touchpi
 * logging (loguru)
 
 ### touchpi-apps
