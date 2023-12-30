@@ -6,7 +6,8 @@ They are small, require little power and can run 7x24.
 In combination with a touch display you may want to display and control your own project without the need of a Pi desktop. 
 However, the effort to develop a GUI interface is often a challenge.
 
-<img src="img/logo.svg" width="100" height="100"> touchpi is there to keep this effort as low as possible. 
+<img src="img/logo.svg" width="100" height="100" alt="Animated gif with touchpi">
+touchpi is there to keep this effort as low as possible. 
 Apps can be easily developed in a simple Ptyhon app framework and are launched in touchpi-OS. 
 The apps are integrated into the configurable touchpi-desktop with lots of functionality. 
 touchpi apps can be developed and tested under Linux and Windows and then transferred to run on a Pi.
@@ -36,10 +37,10 @@ For full documentation visit [touchpi.bruu.eu](https://touchpi.bruu.eu)
 * support frontend apps and backend apps
     * frontend apps have a gui
     * backend apps can do heavy lifting in the background
-* system apps
-      * *Screensaver* with backlight switching (when hardware supports it)
-      * *Pulse* creates customizable cyclic events
-      * *System* offers different types to end touchpi
+  * system apps
+    * *Screensaver* with backlight switching (when hardware supports it)
+    * *Pulse* creates customizable cyclic events
+    * *System* offers different types to end touchpi
 * logging (loguru)
 
 ### touchpi-apps
@@ -54,14 +55,17 @@ For full documentation visit [touchpi.bruu.eu](https://touchpi.bruu.eu)
 ## Install
 ### Raspberry OS Image Setup
 
-> :point_right: **Note:** Sometimes the display manufacturer recommends a certain OS Version. 
+> :point_right: **Note:**<br>
+    Sometimes the display manufacturer recommends a certain OS Version. 
 
 touchpi sticks to the support cycle of Raspberry Pi OS (Debian). 
-touchpi is being developed and mainly tested with the lowest operating system version which is currently being supported on the base of Debian. When a Debian version ist out of life, the development and library requirements are moved to the next higher version.
+touchpi is being developed and mainly tested with the lowest operating system version which is currently being supported by Debian. 
+When a Debian version ist out of life, the development and library requirements are moved to the next higher version.
 
 Nevertheless, touchpi works and is tested with higher Raspberry OS versions (see supported images)  
 
-> :point_up: **Tip:** When you have an issue with touchpi, please test on a raspberry pi with a fresh installed and supported image first before file any issue. 
+> :point_up: **Tip:**<br>
+    When you have an issue with touchpi, please test on a raspberry pi with a fresh installed and supported image first before file any issue. 
 
 **Supported images are:**
 
@@ -72,17 +76,17 @@ Nevertheless, touchpi works and is tested with higher Raspberry OS versions (see
 Download your OS image and create your Micro SD with the Raspberry Pi Imager: 
 [https://www.raspberrypi.com/software/](https://www.raspberrypi.com/software/) 
 
-> :point_up: **Tip:** 
-It is recommended to install the device completely remote and use it as headless system right from the beginning. 
-There is never an external monitor, keyboard or mouse needed in the installation procedure.
-Using ssh keys (ssh-ed25519) is highly recommended.
+> :point_up: **Tip:**<br> 
+    It is recommended to install the device completely remote and use it as headless system right from the beginning. 
+    There is never an external monitor, keyboard or mouse needed in the installation procedure.
+    Using ssh keys (ssh-ed25519) is highly recommended.
 
 
 ### Update Raspberry OS
 
 First boot can last several minutes until the device gets an IP from your DHCP Server. 
-> :point_up: **Tip:** 
-Be patient. Sometimes the initial boot can hang. In this rare cases just disconnect from power and try again or burn image again.
+> :point_up: **Tip:**<br> 
+    Be patient. Sometimes the initial boot can hang. In this rare cases just disconnect from power and try again or burn image again.
 
 login with a ssh terminal (e.g. putty) and your user after the device is available in your LAN (if ssh is used don’t forget to add your ssh private key in the ssh terminal configuration).
 
