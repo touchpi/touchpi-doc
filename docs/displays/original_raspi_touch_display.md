@@ -51,8 +51,3 @@ tremulo caput vasto non est si fuit nescis vestem palles illa.
 Me mea aurum ante, spatium in peti interea proelia; iam mora. Phrygias superos
 Procnen *sed late* avara novis vulnere nec ille pariter.
 
-```mermaid
-flowchart TD
-    A --> B
-    A --> C
-```

@@ -1,25 +1,27 @@
 # <span id="touchpi_logo">touchpi</span>
 
-`touchpi` enables the use and development of simple GUIs for Raspberry Pi devices with touch displays.
+touchpi enables the use and development of simple GUIs for Raspberry Pi devices with touch displays.
 Raspberry Pi devices are perfectly suited as control consoles for DIY projects. 
 They are small, require little power and can run 7x24.
 In combination with a touch display you may want to display and control your own project without the need of a Pi desktop. 
 However, the effort to develop a GUI interface is often a challenge.
 
-![logo](img/logo_transparent.svg){ width="120", align=left }
-`touchpi` is there to keep this effort as low as possible. 
+<img src="img/logo.svg" width="100" height="100"> touchpi is there to keep this effort as low as possible. 
 Apps can be easily developed in a simple Ptyhon app framework and are launched in touchpi-OS. 
 The apps are integrated into the configurable touchpi-desktop with lots of functionality. 
 touchpi apps can be developed and tested under Linux and Windows and then transferred to run on a Pi.
 The touchpi base uses well-known and stable Python packages.
 
 For full documentation visit [touchpi.bruu.eu](https://touchpi.bruu.eu)
-
-<figure markdown>
-  ![intro](img/intro.gif){ width="400" }
-  <figcaption>Raspberry Pi Zero with a Pimoroni Hyperpixel 2.1 Round Display</figcaption>
+<br>
+<br>
+<figure>
+    <img src="img/intro.gif" width="400"
+         alt="Raspberry Pi Zero with a Pimoroni Hyperpixel 2.1 Round Display">
+    <figcaption>Raspberry Pi Zero with a Pimoroni Hyperpixel 2.1 Round Display</figcaption>
 </figure>
  
+
 ## Features
 ### touchpi-desktop
 * screen size is customizable
@@ -52,19 +54,14 @@ For full documentation visit [touchpi.bruu.eu](https://touchpi.bruu.eu)
 ## Install
 ### Raspberry OS Image Setup
 
-/// note
-Sometimes the display manufacturer recommends a certain OS Version. 
-///
+> :point_right: **Note:** Sometimes the display manufacturer recommends a certain OS Version. 
 
 touchpi sticks to the support cycle of Raspberry Pi OS (Debian). 
 touchpi is being developed and mainly tested with the lowest operating system version which is currently being supported on the base of Debian. When a Debian version ist out of life, the development and library requirements are moved to the next higher version.
 
 Nevertheless, touchpi works and is tested with higher Raspberry OS versions (see supported images)  
 
-/// tip
-When you have an issue with touchpi, please test on a raspberry pi with a fresh installed and supported image first before file any issue. 
-///
-
+> :point_up: **Tip:** When you have an issue with touchpi, please test on a raspberry pi with a fresh installed and supported image first before file any issue. 
 
 **Supported images are:**
 
@@ -75,18 +72,17 @@ When you have an issue with touchpi, please test on a raspberry pi with a fresh 
 Download your OS image and create your Micro SD with the Raspberry Pi Imager: 
 [https://www.raspberrypi.com/software/](https://www.raspberrypi.com/software/) 
 
-/// tip
+> :point_up: **Tip:** 
 It is recommended to install the device completely remote and use it as headless system right from the beginning. 
 There is never an external monitor, keyboard or mouse needed in the installation procedure.
 Using ssh keys (ssh-ed25519) is highly recommended.
-///
+
 
 ### Update Raspberry OS
 
 First boot can last several minutes until the device gets an IP from your DHCP Server. 
-/// tip
+> :point_up: **Tip:** 
 Be patient. Sometimes the initial boot can hang. In this rare cases just disconnect from power and try again or burn image again.
-///
 
 login with a ssh terminal (e.g. putty) and your user after the device is available in your LAN (if ssh is used don’t forget to add your ssh private key in the ssh terminal configuration).
 
@@ -117,18 +113,16 @@ Login with putty and your user to continue installation with:
 - `sudo apt install --yes --no-install-recommends x11-apps xorg`
 - `echo "export DISPLAY=:0.0" >> ~/.profile`
 
-/// note | Test the installation
+> :point_right: **Note: Test the installation**<br>
+    - Restart the ssh terminal, so that the DISPLAY variable is activated.<br>
+    - Start the X11 server at the background with: `sudo -b /usr/lib/xorg/Xorg :0`<br>
+    - Run a X11 app with: `xcalc -geometry 340x340-70+70`  
+    The parameter is optimised for a 480x480 screen display. 
+    Left numbers are width and height of the X11 app. Right numbers are position from the right border and from the top.<br>
+    - When everything is installed properly you should see a calculator. 
+    Test your touch display.<br> 
+    The app can be stopped with ^C. Stop the X Window Server with `sudo kill <pid>` and the appropriate pid.
 
-* Restart the ssh terminal, so that the DISPLAY variable is activated.
-Start the X11 server at the background with:
-    * `sudo -b /usr/lib/xorg/Xorg :0`
-* Run a X11 app:
-    * `xcalc -geometry 340x340-70+70`  
-    * The parameter is optimised for a 480x480 screen display. Left numbers are width and height of the X11 app. Right numbers are position from the right border and from the top.
-
-* When everything is installed properly you should see a calculator. Test your touch display.<br>
-The app can be stopped with ^C. Stop the X Window Server with `sudo kill <pid>` and the appropriate pid.
-///
 
 Autorun the X Window Server in the login shell with:
 

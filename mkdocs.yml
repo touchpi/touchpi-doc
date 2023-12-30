@@ -69,7 +69,7 @@ extra_css:
 
 nav:
   - README: index.md
-  - FastStart: none
+  - Quickstart: none
   - Tutorial: none
   - App Development: none
   - Reference: none
