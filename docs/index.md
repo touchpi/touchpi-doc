@@ -6,12 +6,19 @@ They are small, require little power and can run 7x24.
 In combination with a touch display you may want to display and control your own project without the need of a Pi desktop. 
 However, the effort to develop a GUI interface is often a challenge.
 
-<img src="img/logo.svg" width="100" height="100" alt="Animated gif with touchpi">
-touchpi is there to keep this effort as low as possible. 
-Apps can be easily developed in a simple Python app framework and are launched in touchpi-OS. 
-The apps are integrated into the configurable touchpi-desktop with lots of functionality. 
-touchpi apps can be developed and tested under Linux and Windows and then transferred to run on a Pi.
-The touchpi base uses well-known and stable Python packages.
+<div class="container">
+      <div>
+        <img src="img/logo.svg" width="500" height="500" alt="Animated gif with touchpi">
+      </div>
+      <div class="text">
+        touchpi is there to keep this effort as low as possible. 
+        Apps can be easily developed in a simple Python app framework and are launched in touchpi-OS. 
+        The apps are integrated into the configurable touchpi-desktop with lots of functionality. 
+        touchpi apps can be developed and tested under Linux and Windows and then transferred to run on a Pi.
+        The touchpi base uses well-known and stable Python packages.
+      </div>
+    </div>
+
 
 For full documentation visit [touchpi.bruu.eu](https://touchpi.bruu.eu)
 <br>
@@ -78,7 +85,7 @@ Download your OS image and create your Micro SD with the Raspberry Pi Imager:
 
 > :point_up: **Tip:**<br> 
     It is recommended to install the device completely remote and use it as headless system right from the beginning. 
-    There is never an external monitor, keyboard or mouse needed in the installation procedure.
+    It is never an external monitor, keyboard or mouse needed in the installation procedure.
     Using ssh keys (ssh-ed25519) is highly recommended.
 
 
