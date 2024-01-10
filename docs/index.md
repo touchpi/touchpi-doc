@@ -78,8 +78,8 @@ Update packages:
 * `sudo apt install --yes --no-install-recommends python3-pip python3-venv python3-tk git`
 * `sudo apt autoremove`
 * `sudo raspi-config` and then
-    * :material-arrow-right: 1 System Options :material-arrow-right:S5 Boot / Auto Login :material-arrow-right: B2 Console Autologin <br>
-    * :material-arrow-right: Finish :material-arrow-right: Reboot Now
+    * :arrow_forward: 1 System Options :arrow_forward: S5 Boot / Auto Login :arrow_forward: B2 Console Autologin <br>
+    * :arrow_forward: Finish :arrow_forward: Reboot Now
 
 ### Install Display Driver
 
