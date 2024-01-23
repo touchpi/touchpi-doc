@@ -1,0 +1,51 @@
+# Build and deploy touchpi documentation
+name: touchpi documentation
+
+on:
+  push:
+    branches: [ "master" ]
+  workflow_dispatch:
+
+jobs:
+  build:
+    name: Build docs
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout master
+        uses: actions/checkout@v2
+      - name: Setup Python
+        uses: actions/setup-python@v2
+        with:
+          python-version: '3.11'
+      - name: Upgrade pip
+        run: python3 -m pip install --upgrade pip
+      - name: Install dependencies
+        run: python3 -m pip install -r ./requirements.txt
+      - name: Build mkdocs
+        run: mkdocs build --site-dir html
+      - name: Upload site artifact
+        uses: actions/upload-artifact@v2
+        with:
+          name: docs-static-website
+          path: html
+
+  deploy:
+    name: Deploy docs
+    needs: build
+    runs-on: ubuntu-latest
+    steps:
+    - name: Download site artifact
+      uses: actions/download-artifact@v4
+      with:
+        name: docs-static-website
+        path: distfiles
+    - name: Copy to webserver
+      uses: appleboy/scp-action@v0.1.7
+      with:
+        host: ${{ secrets.MKDOCS_HOST }}
+        username: ${{ secrets.MKDOCS_USER }}
+        key: ${{ secrets.MKDOCS_KEY }}
+        source: distfiles/*
+        target: ${{ secrets.MKDOCS_TARGET }}
+        strip_components: 1
+        overwrite: true
