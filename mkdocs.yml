@@ -69,12 +69,10 @@ extra_css:
 
 nav:
   - README: index.md
-  - Quickstart: none
-  - Tutorial: none
-  - App Development: none
-  - Reference: none
-  - Contributing: none
+  - Quickstart: loreipsum.md
+  - Tutorial: loreipsum.md
+  - App Development: loreipsum.md
+  - Reference: loreipsum.md
+  - Contributing: loreipsum.md
   - Tested Touch Displays:
       - displays/index.md
-      - displays/original_raspi_touch_display.md
-      - displays/hyperpixel_round.md
