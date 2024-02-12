@@ -34,7 +34,7 @@ theme:
   language: en
 
 repo_name: touchpi/touchpi
-repo_url: https://github.com/touchpi/test
+repo_url: https://github.com/touchpi/touchpi
 edit_uri: ''
 
 plugins:
@@ -55,6 +55,7 @@ markdown_extensions:
     - warning
   pymdownx.blocks.tab:
     alternate_style: True
+  pymdownx.snippets:
   pymdownx.emoji:
     emoji_index: !!python/name:material.extensions.emoji.twemoji
     emoji_generator: !!python/name:material.extensions.emoji.to_svg
@@ -68,11 +69,14 @@ extra_css:
   - css/extra.css
 
 nav:
-  - README: index.md
+  - Installation: index.md
   - Quickstart: loreipsum.md
-  - Tutorial: loreipsum.md
-  - App Development: loreipsum.md
-  - Reference: loreipsum.md
-  - Contributing: loreipsum.md
-  - Tested Touch Displays:
+#  - Tutorial: loreipsum.md
+#  - App Development: loreipsum.md
+#  - Reference: loreipsum.md
+#  - Contributing: loreipsum.md
+  - Tested Displays:
       - displays/index.md
+      - displays/waveshare3.5a/index.md
+      - displays/original7/index.md
+      - displays/hyperpixel2.1round/index.md
