@@ -1,4 +1,4 @@
-# Original Raspberry 7 inch Touch Display 
+# Hyperpixel 2.1 Round Touch Display 
 
 ## We are working on this page. Be patient
 
