@@ -74,9 +74,11 @@ nav:
 #  - Tutorial: loreipsum.md
 #  - App Development: loreipsum.md
 #  - Reference: loreipsum.md
+  - Tips:
+      - tips/rotation.md
 #  - Contributing: loreipsum.md
   - Tested Displays:
       - displays/index.md
-      - displays/waveshare3.5a/index.md
       - displays/original7/index.md
+      - displays/waveshare3.5a/index.md
       - displays/hyperpixel2.1round/index.md

@@ -1,9 +1,9 @@
 # Waveshare 3.5inch RPi Display(a) 
 
 Set up a Waveshare 3.5inch RPi Display with a XPT2046 touch controller mounted on a Raspberry 3B. 
-Tested with Raspberry Bullseye Lite.
-This page shows how display drivers are installed for touchpi testing purposes.
-We accept no liability for any problems that may arise when following this procedure.
+Tested with Raspberry Pi OS Bullseye Lite.
+This page shows how display drivers are installed for using touchpi.<br>
+<ins>We accept no liability for any problems that may arise when following this procedure.</ins>
 
 ![touchpi @ waveshare 3.5a with Raspi 3B](../../img/RPi3B_waveshare3.5A_1.jpg)
 
@@ -18,8 +18,8 @@ There seem to be several clones of this display with different installation proc
 ///
 
 ## Install Image
-It is a good idea to save some system files after installation of the Raspberry OS Bullseye Lite image. 
-Image installation is described here [Installation](../../index.md#install).
+It is a good idea to save some system files after installation and first boot of the Raspberry Pi OS Bullseye Lite image. 
+Image installation is described here: [Installation](../../index.md#install).
 
 /// details | Origin /boot/cmdline.txt 
 ```
@@ -33,10 +33,14 @@ Image installation is described here [Installation](../../index.md#install).
 ```
 ///
 
-``` title="Update image with"
+``` title="Update OS with"
 sudo apt update && sudo apt upgrade --yes
 sudo apt install --yes --no-install-recommends git xorg xserver-xorg-video-fbturbo x11-apps xinput-calibrator
 ```
+/// note
+The waveshare display uses fbturbo. Therefore, you have to install the package xorg-video-fbturbo and, you have to
+configure an appropriate 99-fbturbo.conf file 
+///
 
 ## Install Display Driver
 
@@ -88,7 +92,7 @@ sudo reboot
 After reboot the display should show the boot process.
 
 ## Create X11 files
-Create the file  99-fbturbo.conf with `sudo nano /usr/share/X11/xorg.conf.d/99-fbturbo.conf` and add this lines:
+Create the file 99-fbturbo.conf with `sudo nano /usr/share/X11/xorg.conf.d/99-fbturbo.conf` and add this lines:
 
 /// note | /usr/share/X11/xorg.conf.d/99-fbturbo.conf
 ``` linenums="1"
@@ -126,14 +130,27 @@ Restart X window server and test with calling e.g. `DISPLAY=:0.0 xcalc`
 You can rotate the touch display with changes in the `boot/config.txt` and `/usr/share/X11/xorg.conf.d/40-libinput.conf` file.
 Edit with `sudo nano`.
 
-| /boot/config.txt                                                                       | /usr/share/X11/xorg.conf.d/40-libinput.conf                                                        |
-|----------------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------------|
-| dtoverlay=waveshare35a:rotate=0 <br> (USB on top, book form layout)                    | Option "TransformationMatrix" "1 0 0 0 1 0 0 0 1" <br> Option is optional. Not needed in the file. |
-| dtoverlay=waveshare35a:rotate=90 <br> (USB right, power cabel down)                    | Use TransformationMatrix 270 -> Option "TransformationMatrix" "0 -1 1 1 0 0 0 0 1"                 |                               
-| dtoverlay=waveshare35a:rotate=180 <br> (USB on down)                                   | Use TransformationMatrix 180 -> Option "TransformationMatrix" "-1 0 1 0 -1 1 0 0 1"                |
-| dtoverlay=waveshare35a:rotate=270 <br> (USB left, power cabel up <br> prefered layout) | Use TransformationMatrix 90 -> Option "TransformationMatrix" "0 1 0 -1 0 1 0 0 1"                  |
+| /boot/config.txt                                                                        | /usr/share/X11/xorg.conf.d/40-libinput.conf                                                        |
+|-----------------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------------|
+| `dtoverlay=waveshare35a:rotate=0`<br>(USB on top, book form layout)                     | `Option "TransformationMatrix" "1 0 0 0 1 0 0 0 1"`<br>Option is optional. Not needed in the file. |
+| `dtoverlay=waveshare35a:rotate=90`<br>(USB right, power cable down)                     | Use TransformationMatrix 270 -><br>`Option "TransformationMatrix" "0 -1 1 1 0 0 0 0 1"`               |                               
+| `dtoverlay=waveshare35a:rotate=180`<br>(USB down)                                       | Use TransformationMatrix 180 -><br>`Option "TransformationMatrix" "-1 0 1 0 -1 1 0 0 1"`              |
+| `dtoverlay=waveshare35a:rotate=270`<br>(USB left, power cable up <br> preferred layout) | Use TransformationMatrix 90 -><br>`Option "TransformationMatrix" "0 1 0 -1 0 1 0 0 1"`                |
 
-Read more about offsets, scaling and rotation [here](../../loreipsum.md).
+/// details | Origin /usr/share/X11/xorg.conf.d/40-libinput.conf
+``` linenums="1"
+--8<-- "./docs/displays/waveshare3.5a/40-libinput.conf"
+```
+///
+
+/// details | Changed /usr/share/X11/xorg.conf.d/40-libinput.conf 
+``` linenums="1"  hl_lines="43"
+--8<-- "./docs/displays/waveshare3.5a/40-libinput.changed.conf"
+```
+///
+
+
+Read more about offsets, scaling and rotation [here](../../tips/rotation.md).
 
 ## Implement HW backlight control.
 

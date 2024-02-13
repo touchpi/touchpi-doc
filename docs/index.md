@@ -87,8 +87,11 @@ login with ssh terminal and your user.
 Install the display driver of your touchscreen. <br>
 There are various routines for this, depending on the manufacturer. Sometimes there is no installation needed.
 
-* See Installation of an original 7" Raspberry Touch Display in Documentation
-* See Installation of Pimoroni Hyperpixel 2.1 Round Display in Documentation
+Example setup procedures:
+
+* [Original 7" Raspberry Touch Display](displays/original7/index.md)
+* [Waveshare 3.5inch RPi Touch Display](displays/waveshare3.5a/index.md)
+* [Pimoroni Hyperpixel 2.1 Round Touch Display](displays/hyperpixel2.1round/index.md)
 
 
 ### Install X Window Server
@@ -96,7 +99,7 @@ There are various routines for this, depending on the manufacturer. Sometimes th
 When your touchscreen is connected and working, you should see the boot process at your touch display.
 Login with putty and your user to continue installation with:
 
-- `sudo apt install --yes --no-install-recommends x11-apps xorg`
+- `sudo apt install --yes --no-install-recommends x11-apps xorg xinput-calibrator`
 - `echo "export DISPLAY=:0.0" >> ~/.profile`
 
 > :point_right: **Note: Test the installation**<br>
