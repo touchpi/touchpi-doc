@@ -125,7 +125,7 @@ Reboot device
 
 Clone from your forked GitHub repository or main touchpi project repository into your user root directory (if you clone the project folder to another place, you have to adjust the autostart line).
 
-- `git clone https://gitlab.bruu.eu/bill/smartpi.git`
+- `git clone https://github.com/touchpi/touchpi`
 
 - `cd touchpi`
 

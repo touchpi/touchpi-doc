@@ -70,6 +70,11 @@ Uncomment these config entries (existence is dependend of the Raspberry OS versi
 ///
 Reboot with `sudo shutdown -r` now or simply `sudo reboot`
 
+/// note
+Running software on a pi zero with Bookworm (not on a pi zero 2) feels subjectively somewhat slower than with buster or bullseye.
+///
+
+
 ## Rotation (screen and touch)
 
 Manufacturer script `hyperpixel2r-rotate` does not work with Buster lite or any Bullseye or any Bookworm. 
