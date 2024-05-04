@@ -59,13 +59,13 @@ Uncomment these config entries (existence is dependend of the Raspberry OS versi
 
 /// details | /boot/cmdline.txt of a Raspberry OS Buster
 ```
---8<-- "./docs/displays/hyperpixel2.1.round/config.changed_buster.txt"
+--8<-- "./docs/displays/hyperpixel2.1round/config.changed_buster.txt"
 ```
 ///
 
 /// details | /boot/cmdline.txt of a Raspberry OS Bookworm
 ```
---8<-- "./docs/displays/hyperpixel2.1.round/config.changed_bookworm.txt"
+--8<-- "./docs/displays/hyperpixel2.1round/config.changed_bookworm.txt"
 ```
 ///
 Reboot with `sudo shutdown -r` now or simply `sudo reboot`
