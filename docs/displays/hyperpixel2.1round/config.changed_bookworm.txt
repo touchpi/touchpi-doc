@@ -1,0 +1,36 @@
+...
+
+# Automatically load overlays for detected DSI displays
+# display_auto_detect=1
+
+# Automatically load initramfs files, if found
+auto_initramfs=1
+
+# Enable DRM VC4 V3D driver
+# dtoverlay=vc4-kms-v3d
+# max_framebuffers=2
+
+# Don't have the firmware create an initial video= setting in cmdline.txt.
+# Use the kernel's default instead.
+# disable_fw_kms_setup=1
+
+# Disable compensation for displays with overscan
+disable_overscan=1
+
+# Run as fast as firmware / board allows
+arm_boost=1
+
+[cm4]
+# Enable host mode on the 2711 built-in XHCI USB controller.
+# This line should be removed if the legacy DWC2 controller is required
+# (e.g. for USB device mode) or if USB support is not required.
+otg_mode=1
+
+[all]
+dtoverlay=hyperpixel2r
+enable_dpi_lcd=1
+dpi_group=2
+dpi_mode=87
+dpi_output_format=0x7f216
+dpi_timings=480 0 10 16 55 480 0 15 60 15 0 0 0 60 0 19200000 6
+display_rotate=0
