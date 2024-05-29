@@ -1,31 +1,27 @@
 # Offset, Rotation, Scaling
 
-## We are working on this page. Be patient
+## Change rotation, stretch or reduce touchfield dimension
 
-Lorem markdownum novis Phocaico. Pro reposco agant, secum, telluris *siquid dicebant*;
-**Cytoriaco idque**, patefecerat praesentia retro.
+Get parameter for changing rotation, stretching or reducing touchfield dimension with this tool: 
+[Editor for linux x11 xinput calibration](https://codepen.io/GottZ/full/pWpNgK). Some background information of this tool here:  
+[github discussion](https://github.com/notro/fbtft/issues/445#issuecomment-334534400) 
+and update your `/usr/share/X11/xorg.conf.d/40-libinput.conf` file.
 
-1. Ego passu pulsabant pro tacitorum magna solent
-2. Eurydices habet mirabile parentum
-3. Fecundo Sunt
-
-Aetas sibi ista relicta consulit Aeoliden marmora, pectore Boreas gravatum in
-utinam? Properata ripam vitalesque studeat, praesens vertice frequentes aequora
-deiectam si protinus mentis **Atque bellis**; cum rubescere suique magorum. Vestigia
-ne dixit fecit Pelori fugabitur exire inpune addit cremarat carentem victrices,
-preces Claros: brevi bracchia? Ferarum tam fraga Lucifer, Solis totum edidit
-conchaeque vultus. Lyramque membraque, silvas se confesso, barbarus timidasque
-neque minatur sanguine harenosi terrestribus celebravit
-[tectus](http://minuuntpatefecit.org/costumqueirascitur)?
-
-> Illis nam decor, visa ingens una coepta, iubemur, in! Nivea aeternus *iura
-> accipiunt* silva et tendens *tamen*, nec, qui consorte figurae inventum
-> adversaque nec, comas. Iam haud rates generat. Est hoc tutae ille vultus
-> barbariam repetita.
-
-```mermaid
-flowchart TD
-    A --> B
-    A --> C
+Test with X window server in background
 ```
+sudo -b /usr/lib/xorg/Xorg :0
+```
+Test with calling e.g. `DISPLAY=:0.0 xcalc`
 
+if it does not fit, then kill X window server in background with `sudo kill <pid>`. 
+You can get the pid with `ps -ef`.
+Update your `/usr/share/X11/xorg.conf.d/40-libinput.conf` file.
+And test again until it fits.
+
+## Change x,y offset of the touchfield (calibrate)
+
+Calibrate with xinput_calibrator
+
+`xinput_calibrator -v --output-type xorg.conf.d`
+
+copy output to `/usr/share/X11/xorg.conf.d/99-calibration.conf` file.

@@ -38,8 +38,8 @@ sudo apt update && sudo apt upgrade --yes
 sudo apt install --yes --no-install-recommends git xorg xserver-xorg-video-fbturbo x11-apps xinput-calibrator
 ```
 /// note
-The waveshare display uses fbturbo. Therefore, you have to install the package xorg-video-fbturbo and, you have to
-configure an appropriate 99-fbturbo.conf file 
+The waveshare display driver can use fbturbo. Therefore, the package xorg-video-fbturbo is installed, and you have to
+configure an appropriate 99-fbturbo.conf file.
 ///
 
 ## Install Display Driver
@@ -77,7 +77,8 @@ Changes in /boot/cmdline.txt with
 ```
 sudo nano /boot/cmdline.txt
 ```
-add `fbcon=map:10 fbcon=font:ProFont6x11` to the end of the line
+add `fbcon=map:10 fbcon=font:ProFont6x11` to the end of the line.
+This will define the framebuffer /dev/fb1 of the SPI display as main display for the consoles.
 
 /// details | Changed /boot/cmdline.txt 
 ```
@@ -91,7 +92,7 @@ sudo reboot
 ```
 After reboot the display should show the boot process.
 
-## Create X11 files
+## Create X11 file
 Create the file 99-fbturbo.conf with `sudo nano /usr/share/X11/xorg.conf.d/99-fbturbo.conf` and add this lines:
 
 /// note | /usr/share/X11/xorg.conf.d/99-fbturbo.conf
@@ -99,6 +100,42 @@ Create the file 99-fbturbo.conf with `sudo nano /usr/share/X11/xorg.conf.d/99-fb
 --8<-- "./docs/displays/waveshare3.5a/99-fbturbo.conf"
 ```
 ///
+
+## Rotation (screen and touch)
+You can rotate the touch display with changes in the `boot/config.txt` and `/usr/share/X11/xorg.conf.d/40-libinput.conf` file.
+Edit with `sudo nano`.
+
+| /boot/config.txt                                                                        | /usr/share/X11/xorg.conf.d/40-libinput.conf                                                        |
+|-----------------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------------|
+| `dtoverlay=waveshare35a:rotate=0`<br>(USB on top, book form layout)                     | `Option "TransformationMatrix" "1 0 0 0 1 0 0 0 1"`<br>Option is optional. Not needed in the file. |
+| `dtoverlay=waveshare35a:rotate=90`<br>(USB right, power cable down)                     | Use TransformationMatrix -><br>`Option "TransformationMatrix" "0 -1 1 1 0 0 0 0 1"`                |                               
+| `dtoverlay=waveshare35a:rotate=180`<br>(USB down)                                       | Use TransformationMatrix -><br>`Option "TransformationMatrix" "-1 0 1 0 -1 1 0 0 1"`               |
+| `dtoverlay=waveshare35a:rotate=270`<br>(USB left, power cable up <br> preferred layout) | Use TransformationMatrix -><br>`Option "TransformationMatrix" "0 1 0 -1 0 1 0 0 1"`                |
+
+/// details | Origin /usr/share/X11/xorg.conf.d/40-libinput.conf
+``` linenums="1"
+--8<-- "./docs/displays/waveshare3.5a/40-libinput.conf"
+```
+///
+
+/// details | Changed /usr/share/X11/xorg.conf.d/40-libinput.conf 
+``` linenums="1"  hl_lines="43"
+--8<-- "./docs/displays/waveshare3.5a/40-libinput.changed.conf"
+```
+///
+
+## Adjust touch dimension
+
+Scale the touch dimension if the cursor does not reach the edges [Read more here](../../tips/rotation.md).
+
+/// details | Sample of a final /usr/share/X11/xorg.conf.d/40-libinput.conf 
+``` linenums="1"  hl_lines="43"
+--8<-- "./docs/displays/1.54inch_Game_LCD/40-libinput.final.conf"
+```
+///
+
+
+When the cursor reaches the edges you can finally calibrate the touch input. 
 
 Run X window server in background
 ```
@@ -120,37 +157,11 @@ Copy the section from stdout to the file.
 The file will look like this (probably with other values):
 /// note | /usr/share/X11/xorg.conf.d/99-calibration.conf
 ``` linenums="1"
---8<-- "./docs/displays/waveshare3.5a/99-calibration.conf"
+--8<-- "./docs/displays/1.54inch_Game_LCD/99-calibration.init.conf"
 ```
 ///
 
 Restart X window server and test with calling e.g. `DISPLAY=:0.0 xcalc`
-
-## Rotation (screen and touch)
-You can rotate the touch display with changes in the `boot/config.txt` and `/usr/share/X11/xorg.conf.d/40-libinput.conf` file.
-Edit with `sudo nano`.
-
-| /boot/config.txt                                                                        | /usr/share/X11/xorg.conf.d/40-libinput.conf                                                        |
-|-----------------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------------|
-| `dtoverlay=waveshare35a:rotate=0`<br>(USB on top, book form layout)                     | `Option "TransformationMatrix" "1 0 0 0 1 0 0 0 1"`<br>Option is optional. Not needed in the file. |
-| `dtoverlay=waveshare35a:rotate=90`<br>(USB right, power cable down)                     | Use TransformationMatrix 270 -><br>`Option "TransformationMatrix" "0 -1 1 1 0 0 0 0 1"`               |                               
-| `dtoverlay=waveshare35a:rotate=180`<br>(USB down)                                       | Use TransformationMatrix 180 -><br>`Option "TransformationMatrix" "-1 0 1 0 -1 1 0 0 1"`              |
-| `dtoverlay=waveshare35a:rotate=270`<br>(USB left, power cable up <br> preferred layout) | Use TransformationMatrix 90 -><br>`Option "TransformationMatrix" "0 1 0 -1 0 1 0 0 1"`                |
-
-/// details | Origin /usr/share/X11/xorg.conf.d/40-libinput.conf
-``` linenums="1"
---8<-- "./docs/displays/waveshare3.5a/40-libinput.conf"
-```
-///
-
-/// details | Changed /usr/share/X11/xorg.conf.d/40-libinput.conf 
-``` linenums="1"  hl_lines="43"
---8<-- "./docs/displays/waveshare3.5a/40-libinput.changed.conf"
-```
-///
-
-
-Read more about offsets, scaling and rotation [here](../../tips/rotation.md).
 
 ## Implement HW backlight control.
 
