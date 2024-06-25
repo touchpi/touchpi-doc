@@ -51,9 +51,9 @@ Nevertheless, touchpi works and is tested with higher Raspberry OS versions (see
 
 **Supported images are:**
 
-* Raspberry Pi OS Buster lite image: [2021-05-07-raspios-buster-armhf-lite](https://downloads.raspberrypi.org/raspios_lite_armhf/images/raspios_lite_armhf-2021-05-28/2021-05-07-raspios-buster-armhf-lite.zip). End od Support: June 30th, 2024 
 * Raspberry Pi OS Bullseye lite image: [2023-05-03-raspios-bullseye-armhf-lite](https://downloads.raspberrypi.org/raspios_lite_armhf/images/raspios_lite_armhf-2023-05-03/2023-05-03-raspios-bullseye-armhf-lite.img.xz). End od Support: June 30th, 2026 
 * Raspberry Pi OS Bookworm lite image: [2023-12-11-raspios-bookworm-armhf-lite](https://downloads.raspberrypi.org/raspios_lite_armhf/images/raspios_lite_armhf-2023-12-11/2023-12-11-raspios-bookworm-armhf-lite.img.xz). End od Support: June 30th, 2028
+* Raspberry Pi OS Buster lite image is not supported anymore
 
 Download your OS image and create your Micro SD with the Raspberry Pi Imager: 
 [https://www.raspberrypi.com/software/](https://www.raspberrypi.com/software/) 
